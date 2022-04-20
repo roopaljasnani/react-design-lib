@@ -1,6 +1,6 @@
 # React Components Design Library
 
-React Component Library boilerplate is a component library template that leverages React and github to create a custome template for developpers that want to start building their component libraries the easy way
+React Component Library boilerplate is a component library template that leverages React and github to create a custome template for developers that want to start building their component libraries the easy way
 
 ## 🚀 Quick Links (_TODO_)
 
@@ -46,8 +46,7 @@ React Component Library boilerplate is a component library template that leverag
 
   - `yarn release`
 
-### _CI / CD_ (**TODO**)
+### _CI / CD_
 
-- storyBook (gh-action) builds and deploys the storybook bundle to github pages on user tag
-- chromatic (gh-action) builds and deploys the storybook bundle to chromatic and review visual diffs on user pull request and push to main
-- publish (gh-action) build and publish the repository , release a new github release version on user push new tag "v\*"
+- build (gh-action) builds the module after lint and tests pass on every pull request and push to main branches.
+- chromatic (gh-action) builds and deploys the storybook bundle to chromatic and review visual diffs on user pull request and push to main branches.
