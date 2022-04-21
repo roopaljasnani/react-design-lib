@@ -1,6 +1,6 @@
 # React Components Design Library
 
-React Component Library boilerplate is a component library template that leverages React and github to create a custome template for developers that want to start building their component libraries the easy way
+React Component Library boilerplate is a component library template that leverages React and github to create a custome template for developers that want to start building their component libraries the easy way.
 
 <a href="https://github.com/roopaljasnani/react-design-lib/actions/workflows/build.yml">
 <img src="https://github.com/roopaljasnani/react-design-lib/actions/workflows/build.yml/badge.svg?branch=develop" />
@@ -20,9 +20,9 @@ React Component Library boilerplate is a component library template that leverag
 
 - The library is designed to make use of strict typing using `TypeScript`.
 
-### _Unit Testing_
+### _Testing_
 
-- Uses `Jest` and `React Testing Library`.
+- Uses `Jest` and `React Testing Library` for writing unit tests.
 
   - `yarn test`
 

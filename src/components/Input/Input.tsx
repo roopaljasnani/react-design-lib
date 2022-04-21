@@ -1,5 +1,5 @@
 import {Input as BaseInput} from 'baseui/input';
-import React, {ChangeEvent, FC, useState} from 'react';
+import {ChangeEvent, FC, useState} from 'react';
 import {InputProps} from '.';
 
 /**
