@@ -10,9 +10,11 @@ React Component Library boilerplate is a component library template that leverag
 <img src="https://github.com/roopaljasnani/react-design-lib/actions/workflows/chromatic.yml/badge.svg?branch=develop" />
 </a>
 
-## 🚀 Quick Links (_TODO_)
+## 🚀 Quick Links
 
-- NPM / Chromatic /Storybook etc.
+- Explore on [StoryBook](https://develop--626158fdc38cd8004809d8fe.chromatic.com)
+- Explore the [Chromatic Library](https://www.chromatic.com/library?appId=626158fdc38cd8004809d8fe&branch=develop)
+- NPM (_TODO_)
 
 ## ✨ Features
 
