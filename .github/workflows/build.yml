@@ -9,19 +9,8 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: c-hive/gha-yarn-cache@v2
-      - run: npm install --legacy-peer-deps
-
   lint:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
         with:
@@ -40,7 +29,10 @@ jobs:
         with:
           fetch-depth: 0
       - uses: c-hive/gha-yarn-cache@v2
-      - run: npm install --legacy-peer-deps && npm run test
+      - name: Test
+        run: |
+          npm install --legacy-peer-deps
+          npm run test
 
   build:
     needs: test
@@ -50,4 +42,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: c-hive/gha-yarn-cache@v2
-      - run: npm install --legacy-peer-deps && npm run build
+      - name: Build
+        run: |
+          npm install --legacy-peer-deps
+          npm run build
