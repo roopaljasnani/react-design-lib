@@ -1,0 +1,27 @@
+name: 'Chromatic'
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: c-hive/gha-yarn-cache@v2
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
