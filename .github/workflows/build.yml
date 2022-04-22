@@ -1,4 +1,4 @@
-name: 'Build'
+name: 'CI'
 
 on:
   push:
@@ -9,18 +9,40 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: c-hive/gha-yarn-cache@v2
-
-      - name: Build
+      - name: Lint
         run: |
           npm install --legacy-peer-deps
           npm run lint
-          npm run test 
+
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: c-hive/gha-yarn-cache@v2
+      - name: Test
+        run: |
+          npm install --legacy-peer-deps
+          npm run test
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: c-hive/gha-yarn-cache@v2
+      - name: Build
+        run: |
+          npm install --legacy-peer-deps
           npm run build
