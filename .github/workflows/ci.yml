@@ -1,37 +1,40 @@
-name: 'Build'
+name: 'CI'
 
 on:
   push:
     branches:
-      - main
+      - develop
+      - master
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
-  setup:
+  lint:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: c-hive/gha-yarn-cache@v2
-      - run: npm install --legacy-peer-deps
-
-  lint:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
       - run: npm run lint
 
   test:
     needs: lint
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: c-hive/gha-yarn-cache@v2
       - run: npm run test
 
   build:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - run: npm run build
+      - name: Build
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: c-hive/gha-yarn-cache@v2
+      - run: npm install --legacy-peer-deps && npm run build
