@@ -28,7 +28,9 @@ jobs:
           fetch-depth: 0
       - uses: c-hive/gha-yarn-cache@v2
       - name: Lint
-      - run: npm install --legacy-peer-deps && npm run lint
+        run: |
+          npm install --legacy-peer-deps
+          npm run lint
 
   test:
     needs: lint
