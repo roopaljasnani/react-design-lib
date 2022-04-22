@@ -1,4 +1,4 @@
-name: 'Build'
+name: 'CI'
 
 on:
   push:
@@ -27,6 +27,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: c-hive/gha-yarn-cache@v2
+      - name: Lint
       - run: npm install --legacy-peer-deps && npm run lint
 
   test:
@@ -37,7 +38,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: c-hive/gha-yarn-cache@v2
-      - run: npm run test
+      - run: npm install --legacy-peer-deps && npm run test
 
   build:
     needs: test
